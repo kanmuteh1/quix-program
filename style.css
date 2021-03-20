@@ -1,0 +1,39 @@
+body{
+    margin: 0px;
+    justify-content: center;
+}
+
+main{
+    width: 100%;
+    /* display: grid;
+    justify-content: center; */
+}
+
+header{
+    padding-top: 6%;
+    padding-bottom: 1%;
+    font-size: 25px;
+}
+
+#selection-area{
+    width: 50%;
+    height: inherit;
+}
+
+select{
+    margin-bottom: 1%;
+    font-size: 25px;
+}
+
+input{
+    font-size: 20px;
+    padding: 0.1% 1% 0.1% 1%;
+}
+
+#question-area ul{
+    list-style-type: none;
+}
+
+input:hover{
+    cursor: pointer;
+}
