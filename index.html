@@ -14,16 +14,24 @@
                 <option value="math">Mathematics</option>
                 <option value="english">English</option>
             </select>
-            <select name="num-of-ques" id="num-of-ques">
+            <select name="num-of-ques" id="num-of-ques" onchange ="sub()">
+                <option value="default"></option>
                 <option value="2">Two</option>
                 <option value="4">Four</option>
                 <option value="6">Six</option>
                 <option value="8">Eight</option>
             </select>
-            <input type="submit" placeholder="SUBMIT" onclick="sub()">
-            <section id="question-area">
-                
+            <div id="scores">
+                <p id="total-score"></p>
+                <p id="correct"></p>
+                <p id="wrong"></p>
+            </div>
+            <section id="questions">
+                <div id="question-area">
+
+                </div>
             </section>
+            <button onclick="finish()" id="answers-btn">SUBMIT ANSWER</button>
        </section>
     </main>
     <script src="script.js"></script>
