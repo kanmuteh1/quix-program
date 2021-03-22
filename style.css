@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    display: grid;
     justify-content: center;
 }
 
@@ -11,16 +12,20 @@ header{
     padding-top: 6%;
     padding-bottom: 1%;
     font-size: 25px;
+    text-align: center;
 }
 
 #selection-area{
-    width: 50%;
+    width: 100%;
     height: inherit;
+    display: flex;
+    text-align: center;
 }
 
 select{
     margin-bottom: 1%;
     font-size: 25px;
+    margin-right: 4px;
 }
 
 input{
@@ -34,4 +39,8 @@ input{
 
 input:hover{
     cursor: pointer;
+}
+
+#answers-btn{
+    display: none;
 }

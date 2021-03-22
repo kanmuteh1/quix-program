@@ -18,9 +18,11 @@ function sub(){
         num_of_ques = Object.keys(data.questions);
         document.getElementById('question-area').innerHTML="";
         let question_count = 1;
+        answers = [];
         num_of_ques.forEach((items) => {
             let get_question = data.questions[items].question;
             answers.push(data.questions[items].answer);
+            console.log(answers)
             let opt = data.questions[items].options;
             let answer_key = Object.keys(opt)
             let questions = `<p>${question_count}. ${get_question}</p>`;
@@ -29,7 +31,7 @@ function sub(){
                 <li><input name="${items}" type="radio" value ="${answer_key[1]}" class="option">${opt.b}</li>
                 <li><input name="${items}" type="radio" value ="${answer_key[2]}" class="option">${opt.c}</li>
                 <li><input name="${items}" type="radio" value ="${answer_key[3]}" class="option">${opt.d}</li>
-                </ul>`;
+            </ul>`;
             document.getElementById('question-area').insertAdjacentHTML('beforeend',questions);
             document.getElementById('question-area').insertAdjacentHTML('beforeend',list_opt);
             question_count++;
@@ -40,6 +42,7 @@ function sub(){
     correct = 0;
     wrong = 0;
     document.getElementById('scores').style = "display: none";
+    document.getElementById('answers-btn').style = "display: block";
 }
 
 function finish(){
@@ -56,7 +59,7 @@ function finish(){
             }
             else{
                 wrong += 1;
-                data.parentElement.style="background-color: red"
+                data.parentElement.style="background-color: red";
             }
         }
     })
