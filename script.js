@@ -6,6 +6,8 @@ let second_sec = document.getElementById('questions-n-ans');
 let num_of_ques;
 let points = 0;
 let total_score = 0;
+let correct = 0;
+let wrong = 0;
 let answers = [];
 let choosen_opt;
 
@@ -34,11 +36,16 @@ function sub(){
         })
         choosen_opt = document.querySelectorAll('li .option')
     })
+    total_score = 0;
+    correct = 0;
+    wrong = 0;
+    document.getElementById('scores').style = "display: none";
 }
 
 function finish(){
-    var correct = 0;
-    var wrong = 0;
+    document.getElementById('scores').style = "display: block";
+    correct = 0;
+    wrong = 0;
     choosen_opt.forEach((data)=>{
         if(data.checked){
             points = 100 / num_of_ques.length;
