@@ -6,9 +6,11 @@ body{
 
 main{
     width: 100%;
+    margin-bottom: 10%;
 }
 
 header{
+    width: 100%;
     padding-top: 6%;
     padding-bottom: 1%;
     font-size: 25px;
@@ -16,16 +18,17 @@ header{
 }
 
 #selection-area{
-    width: 100%;
-    height: inherit;
+    margin: 2px;
     display: flex;
-    text-align: center;
 }
 
 select{
     margin-bottom: 1%;
+    border: 2px solid rgb(54, 50, 50);
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgb(54, 50, 50);
+    color: white;
     font-size: 25px;
-    margin-right: 4px;
 }
 
 input{
@@ -33,14 +36,26 @@ input{
     padding: 0.1% 1% 0.1% 1%;
 }
 
-#question-area ul{
+.question-area{
+    padding: 1.5%;
+    margin: 2px;
+    border: 2px solid black;
+}
+
+.question-area ul{
     list-style-type: none;
 }
 
-input:hover{
-    cursor: pointer;
-}
-
 #answers-btn{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 2px;
     display: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0.1% 1% 0.1% 1%;
+    border: 2px solid rgb(54, 50, 50);
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgb(54, 50, 50);
+    color: white;
 }

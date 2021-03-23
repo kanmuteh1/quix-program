@@ -16,24 +16,25 @@ function sub(){
     .then((response) => response.json())
     .then((data) =>{
         num_of_ques = Object.keys(data.questions);
-        document.getElementById('question-area').innerHTML="";
+        document.getElementById('questions').innerHTML="";
+        document.querySelector('main').style = "border: 2px solid black;"
         let question_count = 1;
         answers = [];
         num_of_ques.forEach((items) => {
             let get_question = data.questions[items].question;
             answers.push(data.questions[items].answer);
-            console.log(answers)
             let opt = data.questions[items].options;
             let answer_key = Object.keys(opt)
-            let questions = `<p>${question_count}. ${get_question}</p>`;
-            let list_opt = `<ul>
+            let html = `<div class = "question-area">
+            <p>${question_count}. ${get_question}</p>
+            <ul>
                 <li><input name="${items}" type="radio" value ="${answer_key[0]}" class="option" id="">${opt.a}</li>
                 <li><input name="${items}" type="radio" value ="${answer_key[1]}" class="option">${opt.b}</li>
                 <li><input name="${items}" type="radio" value ="${answer_key[2]}" class="option">${opt.c}</li>
                 <li><input name="${items}" type="radio" value ="${answer_key[3]}" class="option">${opt.d}</li>
-            </ul>`;
-            document.getElementById('question-area').insertAdjacentHTML('beforeend',questions);
-            document.getElementById('question-area').insertAdjacentHTML('beforeend',list_opt);
+            </ul>
+            </div>`;
+            document.getElementById('questions').insertAdjacentHTML('beforeend',html);
             question_count++;
         })
         choosen_opt = document.querySelectorAll('li .option')
@@ -56,14 +57,17 @@ function finish(){
                 total_score += points;
                 data.parentElement.style="background-color: green";
                 correct += 1;
+                document.getElementById('total-score').innerHTML=`Total Score: ${total_score}%`;
+                document.getElementById('correct').innerHTML=`Correct: ${correct}`;
+                document.getElementById('wrong').innerHTML=`wrong: ${wrong}`;
             }
             else{
                 wrong += 1;
                 data.parentElement.style="background-color: red";
+                document.getElementById('total-score').innerHTML=`Total Score: ${total_score}%`;
+                document.getElementById('correct').innerHTML=`Correct: ${correct}`;
+                document.getElementById('wrong').innerHTML=`wrong: ${wrong}`;
             }
         }
     })
-    document.getElementById('total-score').innerHTML=`Total Score: ${total_score}%`;
-    document.getElementById('correct').innerHTML=`Correct: ${correct}`;
-    document.getElementById('wrong').innerHTML=`wrong: ${wrong}`;
 }

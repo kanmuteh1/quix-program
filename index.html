@@ -9,30 +9,29 @@
 <body>
     <header><b>LET'S QUIZ</b></header>
     <main>
-       <section id="selection-area">
-            <select name="subjects" id="subject">
-                <option value="math">Mathematics</option>
-                <option value="english">English</option>
-            </select>
-            <select name="num-of-ques" id="num-of-ques" onchange ="sub()">
-                <option value="default"></option>
-                <option value="2">Two</option>
-                <option value="4">Four</option>
-                <option value="6">Six</option>
-                <option value="8">Eight</option>
-            </select>
-       </section>
-       <div id="scores">
-        <p id="total-score"></p>
-        <p id="correct"></p>
-        <p id="wrong"></p>
-    </div>
-    <section id="questions">
-        <div id="question-area">
-
+        <section id="selection-area">
+            <div class="select-tools">
+                <select name="subjects" id="subject" onchange="sub()">
+                    <option value="math">Mathematics</option>
+                    <option value="english">English</option>
+                </select>
+                <select name="num-of-ques" id="num-of-ques" onchange ="sub()">
+                    <option value="default"></option>
+                    <option value="2">Two</option>
+                    <option value="4">Four</option>
+                    <option value="6">Six</option>
+                    <option value="8">Eight</option>
+                </select>
+            </div>
+        </section>
+        <div id="scores">
+            <p id="total-score"></p>
+            <p id="correct"></p>
+            <p id="wrong"></p>
         </div>
-    </section>
-    <button onclick="finish()" id="answers-btn">SUBMIT ANSWER</button>
+        <section id="questions">
+        </section>
+        <button onclick="finish()" id="answers-btn">SUBMIT ANSWER</button>
     </main>
     <script src="script.js"></script>
 </body>
