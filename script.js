@@ -1,8 +1,8 @@
 let subject = document.querySelector('#subject');
 let num_of_questions = document.querySelector('#num-of-ques');
-
 let first_sec = document.getElementById('selection-area')
 let second_sec = document.getElementById('questions-n-ans');
+
 let num_of_ques;
 let points = 0;
 let total_score = 0;
@@ -20,7 +20,7 @@ function sub(){
         document.querySelector('main').style = "border: 2px solid black;"
         let question_count = 1;
         answers = [];
-        num_of_ques.forEach((items) => {
+        num_of_ques.forEach((items,index) => {
             let get_question = data.questions[items].question;
             answers.push(data.questions[items].answer);
             let opt = data.questions[items].options;
@@ -28,22 +28,24 @@ function sub(){
             let html = `<div class = "question-area">
             <p>${question_count}. ${get_question}</p>
             <ul>
-                <li><input name="${items}" type="radio" value ="${answer_key[0]}" class="option" id="">${opt.a}</li>
-                <li><input name="${items}" type="radio" value ="${answer_key[1]}" class="option">${opt.b}</li>
-                <li><input name="${items}" type="radio" value ="${answer_key[2]}" class="option">${opt.c}</li>
-                <li><input name="${items}" type="radio" value ="${answer_key[3]}" class="option">${opt.d}</li>
+                <li><input name="${items}" type="radio" value ="${answer_key[0]}" class="option" id="${index}a"><label for="${index}a">${opt.a}</label></li>
+                <li><input name="${items}" type="radio" value ="${answer_key[1]}" class="option" id="${index}b"><label for="${index}b">${opt.b}</label></li>
+                <li><input name="${items}" type="radio" value ="${answer_key[2]}" class="option" id="${index}c"><label for="${index}c">${opt.c}</label></li>
+                <li><input name="${items}" type="radio" value ="${answer_key[3]}" class="option" id="${index}d"><label for="${index}d">${opt.d}</label></li>
             </ul>
             </div>`;
             document.getElementById('questions').insertAdjacentHTML('beforeend',html);
             question_count++;
         })
         choosen_opt = document.querySelectorAll('li .option')
+        if(num_of_ques.length !== 0){
+            document.getElementById('answers-btn').style="display: block";
+        }
     })
     total_score = 0;
     correct = 0;
     wrong = 0;
     document.getElementById('scores').style = "display: none";
-    document.getElementById('answers-btn').style = "display: block";
 }
 
 function finish(){
@@ -70,4 +72,8 @@ function finish(){
             }
         }
     })
+}
+
+function test(a, fnx){
+    return fnx(a)
 }
