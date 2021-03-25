@@ -52,10 +52,14 @@ function finish(){
     document.getElementById('scores').style = "display: block";
     correct = 0;
     wrong = 0;
-    choosen_opt.forEach((data)=>{
+    let opt_arr = [];
+    let opt_count = 0;
+    choosen_opt.forEach((data, index)=>{
         if(data.checked){
+            opt_arr.push(data.value)
             points = 100 / num_of_ques.length;
-            if(answers.includes(data.value)){
+            if(answers[opt_count] === opt_arr[opt_count]){
+                opt_count++;
                 total_score += points;
                 data.parentElement.style="background-color: green";
                 correct += 1;
@@ -64,6 +68,7 @@ function finish(){
                 document.getElementById('wrong').innerHTML=`wrong: ${wrong}`;
             }
             else{
+                opt_count++;
                 wrong += 1;
                 data.parentElement.style="background-color: red";
                 document.getElementById('total-score').innerHTML=`Total Score: ${total_score}%`;
@@ -72,6 +77,7 @@ function finish(){
             }
         }
     })
+    choosen_opt.disabled = true;
 }
 
 function test(a, fnx){
